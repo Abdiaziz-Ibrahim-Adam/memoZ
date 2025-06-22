@@ -1,4 +1,4 @@
-# 🧠 memoZ – Påminnelseapp för vardagen
+# 🧠 memoZ – Personal Task manager 
 
 memoZ är en tillgänglighetsanpassad mobil- och webbapp byggd med React Native och Firebase. Appen hjälper användare att minnas viktiga händelser som medicinintag, tandborstning och andra vardagliga aktiviteter – särskilt framtagen för personer med kognitiva svårigheter.
 
