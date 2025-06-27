@@ -2,6 +2,7 @@
   "name": "memoz",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "homepage": "https://Abdiaziz-Ibrahim-Adam.github.io/memoZ",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -10,7 +11,9 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "predeploy": "expo export --platform web",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
