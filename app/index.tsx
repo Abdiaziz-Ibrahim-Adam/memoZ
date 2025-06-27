@@ -7,10 +7,10 @@ export default function StartSida() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Välkommen till memoZ</Text>
-      <Text style={styles.subtitle}>Din personliga hälsoplanerare</Text>
+      <Text style={styles.subtitle}>Din personliga task manager</Text>
 
-      <Button title="Gå till Schema" onPress={() => router.push('/schema')} />
-      <Button title="Välj Lagringsläge" onPress={() => router.push('/inställningar')} />
+      <Button title="Gå till Schema" onPress={() => router.push('/(tabs)/schema')} />
+      <Button title="Välj Lagringsläge" onPress={() => router.push('/(tabs)/inställningar')} />
     </View>
   );
 }
