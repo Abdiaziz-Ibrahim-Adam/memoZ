@@ -1,31 +1,49 @@
-import { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import ViktigtForm from '../../components/Viktigt/ViktigtForm';
-import ViktigtLista from '../../components/Viktigt/ViktigtLista';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function ViktigtScreen() {
-  const [data, setData] = useState([]);
-
-  const läggTill = (ny: { titel: string; beskrivning: string }) => {
-    const nyPost = { id: Date.now().toString(), ...ny };
-    setData((d) => [nyPost, ...d]);
-  };
-
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Viktiga händelser</Text>
-      <ViktigtForm onSubmit={läggTill} />
-      <ViktigtLista data={data} />
+      <Text style={styles.heading}>⚠️ Viktiga tider</Text>
+
+      <View style={styles.alertBox}>
+        <Text style={styles.alertTitle}>Läkarbesök</Text>
+        <Text style={styles.alertTime}>14:00</Text>
+      </View>
+
+      <View style={styles.alertBox}>
+        <Text style={styles.alertTitle}>Ring apoteket</Text>
+        <Text style={styles.alertTime}>17:00</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
-  header: {
-    fontSize: 22,
+  container: {
+    padding: 24,
+    backgroundColor: '#FFF9F0',
+    flex: 1,
+  },
+  heading: {
+    fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 10,
+    marginBottom: 20,
+  },
+  alertBox: {
+    backgroundColor: '#fff',
+    borderLeftWidth: 4,
+    borderLeftColor: '#FF3B30',
+    padding: 16,
+    borderRadius: 10,
+    marginBottom: 12,
+    elevation: 2,
+  },
+  alertTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  alertTime: {
+    color: '#777',
+    marginTop: 4,
   },
 });

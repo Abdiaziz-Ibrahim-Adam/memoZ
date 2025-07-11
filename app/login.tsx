@@ -11,7 +11,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       await login(email, password);
-      router.replace('/(tabs)');
+      router.replace('/(tabs)/hem');
     } catch (error: any) {
       Alert.alert('Fel vid inloggning', error.message);
     }

@@ -28,6 +28,8 @@ export default {
     },
     plugins: [
       'expo-router',
+      'expo-secure-store',
+      'expo-sqlite',
       [
         'expo-splash-screen',
         {

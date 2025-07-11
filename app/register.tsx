@@ -2,20 +2,43 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Pressable, Alert } from 'react-native';
 import { register } from '../lib/auth';
 import { useRouter } from 'expo-router';
+import { setStoragePreference } from '../lib/storagePrefences';
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  const handleRegister = async () => {
-    try {
-      await register(email, password);
-      router.replace('/(tabs)');
-    } catch (error: any) {
-      Alert.alert('Fel vid registrering', error.message);
-    }
-  };
+const handleRegister = async () => {
+  try {
+    await register(email, password);
+
+    // Direkt efter registrering – fråga om lagringsval:
+    Alert.alert(
+      'Välj lagring',
+      'Var vill du spara dina data?',
+      [
+        {
+          text: 'I molnet (Firebase)',
+          onPress: async () => {
+            await setStoragePreference('firebase');
+            router.replace('/(tabs)/hem');
+          },
+        },
+        {
+          text: 'Lokal lagring (på enhet)',
+          onPress: async () => {
+            await setStoragePreference('local');
+            router.replace('/(tabs)/hem');
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+  } catch (error: any) {
+    Alert.alert('Fel vid registrering', error.message);
+  }
+};
 
   return (
     <View style={styles.container}>

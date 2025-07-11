@@ -7,7 +7,7 @@ export default function StartScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/paper_17737469.png')} // byt till din logotyp/ikon
+        source={require('../assets/images/paper_17737469.png')} 
         style={styles.logo}
         resizeMode="contain"
       />
@@ -16,7 +16,7 @@ export default function StartScreen() {
       <Text style={styles.subtitle}>Din visuella hjälp med rutiner, medicin och mer!</Text>
 
       <View style={styles.buttonContainer}>
-        <Pressable style={styles.primaryButton} onPress={() => router.replace('/(tabs)')}>
+        <Pressable style={styles.primaryButton} onPress={() => router.replace('/(tabs)/hem')}>
           <Text style={styles.primaryText}>🎯 Fortsätt som gäst</Text>
         </Pressable>
 
